@@ -1,27 +1,13 @@
 const quotes = async () => {
-    const response = await fetch('https://favqs.com/api/qotd',{
-      method: 'GET',
-      headers: {
-         "Accept": "*/*",
-         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-         "Authorization": "Token token='73a567c9eaa68890d677caf1d367e1db'"
-      },
-    })
-    const data = await response.json()
-    return data.quote
+  const response = await fetch('https://api.quotable.io/random')
+  const data = await response.json()
+  return data
 }
 
-const getAuthorQuotes = async (author) => {
-    const response = await fetch(`https://favqs.com/api/quotes/?filter=${author}&type=author`, {
-      method: 'GET',
-      headers: {
-         "Accept": "*/*",
-         "User-Agent": "Thunder Client (https://www.thunderclient.com)",
-         "Authorization": "Token token='73a567c9eaa68890d677caf1d367e1db'"
-      },
-    })
-    const data = await response.json()
-    return data.quotes
+const getAuthorQuotes = async (slug) => {
+  const response = await fetch(`https://quotable.io/quotes?author=${slug}`)
+  const data = await response.json()
+  return data.results
 }
 
-export {quotes, getAuthorQuotes}
+export { quotes, getAuthorQuotes }

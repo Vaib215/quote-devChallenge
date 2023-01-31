@@ -7,8 +7,8 @@ const Home = () => {
   const quote = useLoaderData()
   return (
     <>
-      <Quote quote={quote.body}/>
-      <Author author={quote.author} category={quote.tags}/>
+      <Quote quote={quote.content}/>
+      <Author slug={quote.authorSlug} author={quote.author} category={quote.tags}/>
     </>
   )
 }

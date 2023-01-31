@@ -10,7 +10,7 @@ const AuthorPage = () => {
         const data = await getAuthorQuotes(id)
         const quotesArr = []
         data.map(quote => {
-            quotesArr.push(quote.body)
+            quotesArr.push(quote.content)
         })
         setQuotes(quotesArr)
     }
@@ -20,8 +20,8 @@ const AuthorPage = () => {
     return (
         <div id="auth-page">
             <h2>{id}</h2>
-            {quotes!==null?quotes.map(quote => (
-                <Quote key={quote} quote={quote} />
+            {quotes!==null?quotes.map((quote,index) => (
+                <Quote key={index} quote={quote} />
             )):<h2>Loading...</h2>}
         </div>
     )
