@@ -1,11 +1,5 @@
 const quotes = async () => {
-    const response = await fetch('https://favqs.com/api/qotd', {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        Authorization: 'Token token="73a567c9eaa68890d677caf1d367e1db"',
-      },
-    })
+    const response = await fetch('https://favqs.com/api/qotd')
     const data = await response.json()
     return data.quote
 }
